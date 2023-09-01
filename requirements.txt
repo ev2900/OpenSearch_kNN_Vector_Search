@@ -1,8 +1,5 @@
-torch
 boto3
-re
-time
-json
 pandas 
 requests
-transformers 
+transformers
+torch
