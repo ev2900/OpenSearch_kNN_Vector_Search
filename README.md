@@ -6,7 +6,7 @@ Searches are executed against OpenSearch by transforming search text into embedd
 
 # Deployment on AWS 
 
-
+[![Launch CloudFormation Stack](https://sharkech-public.s3.amazonaws.com/misc-public/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=open-search-kNN&templateURL=https://sharkech-public.s3.amazonaws.com/misc-public/OpenSearch_kNN_Vector_Search.yaml)
 
 # How does the Example Python Script Work
 
