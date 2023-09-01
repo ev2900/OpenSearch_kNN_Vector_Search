@@ -59,7 +59,7 @@ Resources:
       AutomaticStopTimeMinutes: '30'
       Repositories: [
         {
-          "PathComponent" : '/OpenSearch_API_Examples',
+          "PathComponent" : '/OpenSearch_kNN_Vector_Search',
           "RepositoryUrl" : 'https://github.com/ev2900/OpenSearch_kNN_Vector_Search.git'
         }
       ]
