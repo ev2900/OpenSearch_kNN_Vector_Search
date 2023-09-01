@@ -3,7 +3,7 @@ import torch
 import boto3
 import re
 import time
-import sagemaker
+#import sagemaker
 
 import json
 import pandas as pd
