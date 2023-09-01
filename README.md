@@ -104,7 +104,7 @@ The data type of the ```question_vector``` field is ```knn_vector```
 
 ## 4. Load data into the index
 
-Make API calls to the OpenSearch domain to load the data (plain text and vector representation) into the OpenSearch index that was just created.
+Make API calls to the OpenSearch domain to load the data (plain text and vector representation) into the OpenSearch index that was just created
 
 ## 5. Convert user input/search into a vector
 
