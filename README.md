@@ -37,9 +37,7 @@ This section explains how the python script [kNN.py](https://github.com/ev2900/O
 
 ## 1. Prepare the headset production question answer (PQA) data
 
-Each JSON document in the raw PQA data set has a question with many potential answers in additon to other information about the product in question 
-
-The code below creates a pandas data frame (df) where each row is a single question and answer pair. The other product information is also removed
+Each JSON document in the raw PQA data set has a question with many potential answers in additon to other information about the product in question. The code below creates a pandas data frame (df) where each row is a single question and answer pair. The other product information is also removed. 
 
 For example a JSON document from the raw PQA data set is below 
 
@@ -67,9 +65,33 @@ After processing the document the df data frame will have a question and answer 
 	Question: 	does this work with cisco ip phone 7942
 	Answer: 	Use the Plantronics compatibility guide to see what is compatible with your phone. http://www.plantronics.com/us/compatibility-guide/
 
-
 ## 2. Convert the question text in the PQA data set into vector(s)
 
+After preparing the PQA dataset, we need to tokenize the question text and convert it into a vector representation. We do this using BERT via. Hugging Face. This process has 3 steps. Each is explained below
+
+### Tokenize the question text
+
+Input:  ```df["question"].tolist()``` <br>
+Output: ```inputs_tokens```
+
+tokenizer()
+	padding - Ensure that all sequences in a batch have the same length. If the padding argument is set to True, the function will pad sequences up to the length of the longest sequence in the batch
+	return_tensors - Return output as a PyTorch torch.Tensor object
+
+### Convert tokenized questions into vectors using BERT
+
+Input:  ```inputs_tokens``` <br>
+Output: ```outputs```
+
+```outputs``` is 3 dimensional tensor object. Working with 1000 rows of data the dimension of outputs could be [1000, 64, 768]
+
+### Use mean pooling to condense the 
+
+Input: ```outputs``` <br>
+Ouput: ```question_text_embeddings```
+
+```question_text_embeddings``` is a 2 dimensional tensor object. Working with 1000 rows of data the dimension of output could be [1000, 768]
+ 
 ## 3. Create an OpenSearch index
 
 ## 4. Load data into the index
