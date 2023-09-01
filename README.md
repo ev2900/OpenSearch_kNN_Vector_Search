@@ -94,8 +94,25 @@ Ouput: ```question_text_embeddings```
  
 ## 3. Create an OpenSearch index
 
+Make an API call to the OpenSearch domain to create an OpenSearch index named ```nlp_pqa``` with 3 fields. These fields include
+
+1. question_vector
+2. question
+3. answer
+
+The data type of the ```question_vector``` field is ```knn_vector```
+
 ## 4. Load data into the index
+
+Make API calls to the OpenSearch domain to load the data (plain text and vector representation) into the OpenSearch index that was just created.
 
 ## 5. Convert user input/search into a vector
 
+Tokenize and convert the user input / search of *does this work with xbox?* into a vector. The vector representation of this search will be used in the next step
+
+Input: ```query_raw_sentences = ['does this work with xbox?']```
+Ouput: ```search_vector```
+
 ## 6. Search OpenSearch using the vector representation of the user input/search
+
+Make an API call to the OpenSearch domain to run the run the search *does this work with xbox* by passing the vector-ized version of the search to OpenSearch. Print the top results to the console
