@@ -33,7 +33,7 @@ Once the required libraries are install run the python script by executing
 
 # How does the Example Python Script Work
 
-This section explains how the python script kNN works
+This section explains how the python script [kNN.py](https://github.com/ev2900/OpenSearch_kNN_Vector_Search/blob/main/kNN.py) works. The script has 6 sections. Each is explained below
 
 ## 1. Prepare the headset production question answer (PQA) data
 
