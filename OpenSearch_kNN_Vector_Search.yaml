@@ -1,0 +1,73 @@
+Description: This template will deploy OpenSearch domain and Cloud9 with GitHub repo
+
+Resources:
+
+  # -----------------
+  # OpenSearch
+  # -----------------
+  OpenSearchDomain:
+    Type: AWS::OpenSearchService::Domain
+    Properties:
+      DomainName: knn-search-domain
+      EngineVersion: 'OpenSearch_2.7'
+      # Development configuration
+      ClusterConfig:
+        DedicatedMasterEnabled: false
+        InstanceCount: '1'
+        ZoneAwarenessEnabled: false
+        InstanceType: 'r6g.large.search'
+      EBSOptions:
+        EBSEnabled: true
+        VolumeSize: '100'
+        VolumeType: 'gp3'
+      # Node to node encrpytion must be enabled to use the advanced security options
+      NodeToNodeEncryptionOptions:
+        Enabled: true
+      # Encryption at rest must be ebabled to use the advanced security options
+      EncryptionAtRestOptions:
+        Enabled: true
+      # HTTPS must be required to use the advanced security options
+      DomainEndpointOptions:
+        EnforceHTTPS: true
+      # Create a master user with a pre-defined username and password
+      AdvancedSecurityOptions:
+        Enabled: true
+        InternalUserDatabaseEnabled: true
+        MasterUserOptions:
+          MasterUserName: 'OSMasterUser'
+          MasterUserPassword: 'AwS#OpenSearch1'
+      # Set an access policy open to any AWS resource
+      AccessPolicies:
+        Version: 2012-10-17
+        Statement:
+          Effect: 'Allow'
+          Principal:
+            AWS: '*'
+          Action: 'es:*'
+          Resource: '*'
+    
+  # -----------------
+  # Cloud9
+  # -----------------
+  Cloud9:
+    Type: AWS::Cloud9::EnvironmentEC2
+    Properties:
+      Name: 'kNN-search-cloud9'
+      Description: 'Cloud9 development enviorment'
+      ImageId: 'amazonlinux-2-x86_64'
+      InstanceType: 't2.large'
+      AutomaticStopTimeMinutes: '30'
+      Repositories: [
+        {
+          "PathComponent" : '/OpenSearch_API_Examples',
+          "RepositoryUrl" : 'https://github.com/ev2900/OpenSearch_kNN_Vector_Search.git'
+        }
+      ]
+
+Outputs:
+  UserName:
+    Description: 'OpenSearch Dashboard Login UserName'
+    Value: 'OSMasterUser'
+  Password:
+    Description: 'OpenSearch Dashboard Login Password'
+    Value: 'AwS#OpenSearch1'     
