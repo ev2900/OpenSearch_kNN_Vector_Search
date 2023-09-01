@@ -10,9 +10,9 @@ To deploy this example on AWS you can click on the button below to launch a Clou
 
 [![Launch CloudFormation Stack](https://sharkech-public.s3.amazonaws.com/misc-public/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=open-search-kNN&templateURL=https://sharkech-public.s3.amazonaws.com/misc-public/OpenSearch_kNN_Vector_Search.yaml)
 
-The stack will deploy an Amazon OpenSearch domain and a Cloud9 environment with this GitHub repository downloaded on it. You can update and run the python script in the Cloud9 environment 
+The stack will deploy an Amazon OpenSearch domain and a Cloud9 environment with this GitHub repository downloaded. You can update and run the python script in the Cloud9 environment 
 
-The only parts of the Python script that need to updated before running is the section below
+The only parts of the Python script that need to updated before running it is the section below
 
 ```
 # Configure re-usable variables for Opensearch domain URL, user name and password
@@ -21,9 +21,15 @@ opensearch_user_name = '<user_name>'
 opensearch_password = '<password>'
 ```
 
-The user name and password are part of the CloudFormation outputs. The domain URL can be found on the [OpenSearch page](https://us-east-1.console.aws.amazon.com/aos/home) in the AWS console under the domains section. Once you update these values in the (kNN.py)[https://github.com/ev2900/OpenSearch_kNN_Vector_Search/blob/main/kNN.py] file and save it.
+The user name and password are part of the CloudFormation outputs. The domain URL can be found on the [OpenSearch page](https://us-east-1.console.aws.amazon.com/aos/home) in the AWS console under the domains section. Once you update these values in the [kNN.py](https://github.com/ev2900/OpenSearch_kNN_Vector_Search/blob/main/kNN.py) file make sure to save the file.
 
+Install the required Python libraries by running in the Cloud9 terminal
 
+```pip install -r requirements.txt```
+
+Once the required libraries are install run the python script by executing 
+
+```python kNN.py```
 
 # How does the Example Python Script Work
 
