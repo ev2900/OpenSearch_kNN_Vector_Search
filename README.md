@@ -6,6 +6,8 @@ Searches are executed against OpenSearch by transforming search text into embedd
 
 # Deployment on AWS 
 
+
+
 # How does the Example Python Script Work
 
 ## 1. Prepare the headset production question answer (PQA) data
