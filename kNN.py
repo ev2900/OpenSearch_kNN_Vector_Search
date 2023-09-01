@@ -52,7 +52,7 @@ number_of_rows_from_dataset = 1000
 
 df = pd.DataFrame(columns=('question', 'answer'))
 
-with open('amazon-pqa/amazon_pqa_headsets.json') as f:
+with open('amazon_pqa_headsets.json') as f:
     i=0
     for line in f:
         data = json.loads(line)
