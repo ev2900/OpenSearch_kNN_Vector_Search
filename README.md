@@ -33,34 +33,34 @@ Once the required libraries are install run the python script by executing
 
 # How does the Example Python Script Work
 
-This section explains how the python script [kNN.py](https://github.com/ev2900/OpenSearch_kNN_Vector_Search/blob/main/kNN.py) works. The script has 6 sections. Each is explained below
+This section explains how the python script [kNN.py](https://github.com/ev2900/OpenSearch_kNN_Vector_Search/blob/main/kNN.py) works. The script has 6 sections each section in the full [kNN.py](https://github.com/ev2900/OpenSearch_kNN_Vector_Search/blob/main/kNN.py) script is clearly defined by comments. Each is explained below
 
 ## 1. Prepare the headset production question answer (PQA) data
 
-Each JSON document in the raw PQA data set has a question with many potential answers in additon to other information about the product in question. 
+Each JSON document in the raw PQA data set has a question with many potential answers in additon to other information about the product in question 
 
-The code below creates a pandas data frame (df) where each row is a single question and answer pair. The other product information is also removed.
+The code below creates a pandas data frame (df) where each row is a single question and answer pair. The other product information is also removed
 
 For example a JSON document from the raw PQA data set is below 
 
 ```
-	{
-		"question_id": "Tx39GCUOS5AYAFK",
-		"question_text": "does this work with cisco ip phone 7942",
-		"asin": "B000LSZ2D6",
-		"bullet_point1": "Noise-Canceling microphone filters out background sound",
-		"bullet_point2": "HW251N P/N 75100-06",
-		"bullet_point3": "Uses Plantronics QD Quick Disconnect Connector. Must be used with Plantronics Amp or with proper phone or USB adapter cable",
-		"bullet_point4": "Connectivity Technology: Wired, Earpiece Design: Over-the-head, Earpiece Type: Monaural, Host Interface: Proprietary, Microphone Design: Boom, Microphone Technology: Noise Canceling, Product Model: HW251N, Product Series: SupraPlus, Standard Warranty: 2 Year",
-		"bullet_point5": "Easy Lightweight Wear -Leaving One Ear Uncovered For Person-to-Person Conversations", "product_description": "", "brand_name": "Plantronics", "item_name": "Plantronics HW251N SupraPlus Wideband Headset (64338-31)",
-		"question_type": "yes-no",
-		"answer_aggregated": "neutral",
-		"answers": [
-			{"answer_text": "Use the Plantronics compatibility guide to see what is compatible with your phone. http://www.plantronics.com/us/compatibility-guide/"},
-			{"answer_text": "I think that you will need a extra cord, but, To avoid offering you any false information,   We highly recommend contacting the manufacturer of this product for more specific information.   if you are not sure about it, you can go first to :  http://www.plantronics.com/us/support/  or call Plantronics TOLL FREE SUPPORT: 1-855-765-7878 24-HOUR SUPPORT SUNDAY 2PM-FRIDAY 5PM (PT)  they will answer all the questions you need to know about it."},
-			{"answer_text": "I'm really not positive. It works with our phones that include model numbers 7941, 7945 and 7961."}
-		]
-	}
+{
+	"question_id": "Tx39GCUOS5AYAFK",
+	"question_text": "does this work with cisco ip phone 7942",
+	"asin": "B000LSZ2D6",
+	"bullet_point1": "Noise-Canceling microphone filters out background sound",
+	"bullet_point2": "HW251N P/N 75100-06",
+	"bullet_point3": "Uses Plantronics QD Quick Disconnect Connector. Must be used with Plantronics Amp or with proper phone or USB adapter cable",
+	"bullet_point4": "Connectivity Technology: Wired, Earpiece Design: Over-the-head, Earpiece Type: Monaural, Host Interface: Proprietary, Microphone Design: Boom, Microphone Technology: Noise Canceling, Product Model: HW251N, Product Series: SupraPlus, Standard Warranty: 2 Year",
+	"bullet_point5": "Easy Lightweight Wear -Leaving One Ear Uncovered For Person-to-Person Conversations", "product_description": "", "brand_name": "Plantronics", "item_name": "Plantronics HW251N SupraPlus Wideband Headset (64338-31)",
+	"question_type": "yes-no",
+	"answer_aggregated": "neutral",
+	"answers": [
+		{"answer_text": "Use the Plantronics compatibility guide to see what is compatible with your phone. http://www.plantronics.com/us/compatibility-guide/"},
+		{"answer_text": "I think that you will need a extra cord, but, To avoid offering you any false information,   We highly recommend contacting the manufacturer of this product for more specific information.   if you are not sure about it, you can go first to :  http://www.plantronics.com/us/support/  or call Plantronics TOLL FREE SUPPORT: 1-855-765-7878 24-HOUR SUPPORT SUNDAY 2PM-FRIDAY 5PM (PT)  they will answer all the questions you need to know about it."},
+		{"answer_text": "I'm really not positive. It works with our phones that include model numbers 7941, 7945 and 7961."}
+	]
+}
 ```
 After processing the document the df data frame will have a question and answer column
 
