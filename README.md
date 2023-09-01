@@ -10,18 +10,24 @@ To deploy this example on AWS you can click on the button below to launch a Clou
 
 [![Launch CloudFormation Stack](https://sharkech-public.s3.amazonaws.com/misc-public/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=open-search-kNN&templateURL=https://sharkech-public.s3.amazonaws.com/misc-public/OpenSearch_kNN_Vector_Search.yaml)
 
-The stack will deploy an Amazon OpenSearch domain and a Cloud9 enviorment with this GitHub repository downloaded on it. You can update and run the python script in the Cloud9 enviorment 
+The stack will deploy an Amazon OpenSearch domain and a Cloud9 environment with this GitHub repository downloaded on it. You can update and run the python script in the Cloud9 environment 
 
 The only parts of the Python script that need to updated before running is the section below
+
 ```
 # Configure re-usable variables for Opensearch domain URL, user name and password
 opensearch_url = 'https://<opensearch_domain_url' # DO NOT INCLUDE TRAILING SLASH
 opensearch_user_name = '<user_name>'
 opensearch_password = '<password>'
 ```
-The user name and password are part of the CloudFormation outputs. The domain URL can be found on the [OpenSearch page](https://us-east-1.console.aws.amazon.com/aos/home) in the AWS console under the domains section
+
+The user name and password are part of the CloudFormation outputs. The domain URL can be found on the [OpenSearch page](https://us-east-1.console.aws.amazon.com/aos/home) in the AWS console under the domains section. Once you update these values in the (kNN.py)[https://github.com/ev2900/OpenSearch_kNN_Vector_Search/blob/main/kNN.py] file and save it.
+
+
 
 # How does the Example Python Script Work
+
+This section explains how the python script kNN works
 
 ## 1. Prepare the headset production question answer (PQA) data
 
