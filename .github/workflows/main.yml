@@ -28,5 +28,5 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
           
-      - name: Upload OpenSearch_cloudwatch_alarms.yaml to S3
+      - name: Upload OpenSearch_kNN_Vector_Search.yaml to S3
         run: aws s3 cp /home/runner/work/OpenSearch_kNN_Vector_Search/OpenSearch_kNN_Vector_Search/OpenSearch_kNN_Vector_Search.yaml s3://sharkech-public/misc-public/OpenSearch_kNN_Vector_Search.yaml
