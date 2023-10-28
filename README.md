@@ -10,9 +10,15 @@ To deploy this example on AWS you can click on the button below to launch a Clou
 
 [![Launch CloudFormation Stack](https://sharkech-public.s3.amazonaws.com/misc-public/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=open-search-kNN&templateURL=https://sharkech-public.s3.amazonaws.com/misc-public/OpenSearch_kNN_Vector_Search.yaml)
 
-The stack will deploy an Amazon OpenSearch domain and a Cloud9 environment with this GitHub repository downloaded. You can update and run the python script in the Cloud9 environment 
+The stack will deploy an Amazon OpenSearch domain and a Cloud9 environment with this GitHub repository downloaded. Before using the Cloud9 enviorment run the [resize_EBS.sh](https://github.com/ev2900/OpenSearch_kNN_Vector_Search/blob/main/resize_EBS.sh) from the Cloud9 termial. 
 
-The only parts of the Python script that need to updated before running it is the section below
+Execute the following in terminal from the *OpenSearch_kNN_Vector_Search* directory
+
+```bash resize_EBS.sh```
+
+The bash script resizes the EBS volume attached to the Cloud9 instance from 10 GB to 100 GB.
+
+Once the resize is complete, uou can update and run the [kNN.py](https://github.com/ev2900/OpenSearch_kNN_Vector_Search/blob/main/kNN.py) python script in the Cloud9 environment. The only parts of the Python script that need to updated before running it is the section below
 
 ```
 # Configure re-usable variables for Opensearch domain URL, user name and password
