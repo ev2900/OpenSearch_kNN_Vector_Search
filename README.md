@@ -1,18 +1,18 @@
 # OpenSearch kNN Vector Search
 
-<img width="275" alt="map-user" src="https://img.shields.io/badge/cloudformation template deployments-0-blue">
+<img width="275" alt="map-user" src="https://img.shields.io/badge/cloudformation template deployments-13-blue">
 
 This example uses the publicly avaiable [Amazon Product Question Answer](https://registry.opendata.aws/amazon-pqa/) (PQA) data set. In this example, the questions in the PQA data set are tokenized and represented as vectors. BERT via. Hugging Face is used to generate the embeddings. The vector representation of the questions (embeddings) are loading to an OpenSearch index as a *knn_vector* data type
 
 Searches are executed against OpenSearch by transforming search text into embeddings and determining similarity using kNN. The most similar result answers are returned as search results
 
-# Deployment on AWS 
+# Deployment on AWS
 
 To deploy this example on AWS you can click on the button below to launch a CloudFormation stack
 
 [![Launch CloudFormation Stack](https://sharkech-public.s3.amazonaws.com/misc-public/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=open-search-kNN&templateURL=https://sharkech-public.s3.amazonaws.com/misc-public/OpenSearch_kNN_Vector_Search.yaml)
 
-The stack will deploy an Amazon OpenSearch domain and a Cloud9 environment with this GitHub repository downloaded. Before using the Cloud9 enviorment run the [resize_EBS.sh](https://github.com/ev2900/OpenSearch_kNN_Vector_Search/blob/main/resize_EBS.sh) from the Cloud9 termial. 
+The stack will deploy an Amazon OpenSearch domain and a Cloud9 environment with this GitHub repository downloaded. Before using the Cloud9 enviorment run the [resize_EBS.sh](https://github.com/ev2900/OpenSearch_kNN_Vector_Search/blob/main/resize_EBS.sh) from the Cloud9 termial.
 
 Execute the following in terminal from the *OpenSearch_kNN_Vector_Search* directory
 
@@ -35,7 +35,7 @@ Install the required Python libraries by running in the Cloud9 terminal
 
 ```pip install -r requirements.txt```
 
-Once the required libraries are install run the python script by executing 
+Once the required libraries are install run the python script by executing
 
 ```python kNN.py```
 
@@ -45,9 +45,9 @@ This section explains how the python script [kNN.py](https://github.com/ev2900/O
 
 ## 1. Prepare the headset production question answer (PQA) data
 
-Each JSON document in the raw PQA data set has a question with many potential answers in additon to other information about the product in question. The code below creates a pandas data frame (df) where each row is a single question and answer pair. The other product information is also removed. 
+Each JSON document in the raw PQA data set has a question with many potential answers in additon to other information about the product in question. The code below creates a pandas data frame (df) where each row is a single question and answer pair. The other product information is also removed.
 
-For example a JSON document from the raw PQA data set is below 
+For example a JSON document from the raw PQA data set is below
 
 ```
 {
@@ -93,13 +93,13 @@ Output: ```outputs```
 
 ```outputs``` is 3 dimensional tensor object. Working with 1000 rows of data the dimension of outputs could be [1000, 64, 768]
 
-### Use mean pooling to condense the 
+### Use mean pooling to condense the
 
 Input: ```outputs``` <br>
 Ouput: ```question_text_embeddings```
 
 ```question_text_embeddings``` is a 2 dimensional tensor object. Working with 1000 rows of data the dimension of output could be [1000, 768]
- 
+
 ## 3. Create an OpenSearch index
 
 Make an API call to the OpenSearch domain to create an OpenSearch index named ```nlp_pqa``` with 3 fields. These fields include
