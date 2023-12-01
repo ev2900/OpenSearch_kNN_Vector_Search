@@ -1,5 +1,7 @@
 # OpenSearch kNN Vector Search
 
+<img width="275" alt="map-user" src="https://img.shields.io/badge/cloudformation template deployments-0-blue">
+
 This example uses the publicly avaiable [Amazon Product Question Answer](https://registry.opendata.aws/amazon-pqa/) (PQA) data set. In this example, the questions in the PQA data set are tokenized and represented as vectors. BERT via. Hugging Face is used to generate the embeddings. The vector representation of the questions (embeddings) are loading to an OpenSearch index as a *knn_vector* data type
 
 Searches are executed against OpenSearch by transforming search text into embeddings and determining similarity using kNN. The most similar result answers are returned as search results
