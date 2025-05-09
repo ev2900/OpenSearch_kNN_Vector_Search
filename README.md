@@ -1,6 +1,6 @@
 # OpenSearch kNN Vector Search
 
-<img width="275" alt="map-user" src="https://img.shields.io/badge/cloudformation template deployments-16-blue"> <img width="85" alt="map-user" src="https://img.shields.io/badge/views-2566-green"> <img width="125" alt="map-user" src="https://img.shields.io/badge/unique visits-967-green">
+<img width="275" alt="map-user" src="https://img.shields.io/badge/cloudformation template deployments-16-blue"> <img width="85" alt="map-user" src="https://img.shields.io/badge/views-2566-green"> <img width="125" alt="map-user" src="https://img.shields.io/badge/unique visits-977-green">
 
 This example uses the publicly avaiable [Amazon Product Question Answer](https://registry.opendata.aws/amazon-pqa/) (PQA) data set. In this example, the questions in the PQA data set are tokenized and represented as vectors. BERT via. Hugging Face is used to generate the embeddings. The vector representation of the questions (embeddings) are loading to an OpenSearch index as a *knn_vector* data type
 
